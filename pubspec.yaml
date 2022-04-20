@@ -21,6 +21,7 @@ dependencies:
   # Remote API
   connectivity: ^3.0.6
   internet_connection_checker: ^0.0.1+1
+  http: ^0.13.3
 
   #Route
   auto_route: ^2.3.2
