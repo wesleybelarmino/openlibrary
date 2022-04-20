@@ -1,7 +1,7 @@
 import 'package:openlibrary/src/features/books/domain/entity/book.model.dart';
 
-class BookList {
+class BooksList {
   final List<Book?> books;
 
-  const BookList(this.books);
+  const BooksList(this.books);
 }

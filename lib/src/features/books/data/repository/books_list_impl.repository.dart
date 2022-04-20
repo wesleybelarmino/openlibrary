@@ -15,7 +15,7 @@ class BooksListRepositoryImpl extends BooksListRepository {
   BooksListRepositoryImpl(this.booksListDataSource, this.networkInfo);
 
   @override
-  Future<Either<Failure, BookList>> getValidBooksList() async {
+  Future<Either<Failure, BooksList>> getValidBooksList() async {
     if (await networkInfo.isConnected) {
       try {
         return Right(await booksListDataSource.getBooks());

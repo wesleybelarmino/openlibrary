@@ -8,7 +8,7 @@ class GetBooksListUsecase {
 
   GetBooksListUsecase(this.booksRepository);
 
-  Future<Either<Failure, BookList>> call() async {
+  Future<Either<Failure, BooksList>> call() async {
     return await booksRepository.getValidBooksList();
   }
 }

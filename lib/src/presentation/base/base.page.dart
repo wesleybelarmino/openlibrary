@@ -1,6 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:mobx/mobx.dart';
 import 'package:openlibrary/src/controller/base.store.dart';
 import 'package:openlibrary/src/di/injection.dart';
 import 'package:openlibrary/src/presentation/ui/error_overlay.ui.dart';
@@ -33,7 +33,15 @@ abstract class BaseState<T extends StatefulWidget, S extends BaseStore>
     return Stack(
       fit: StackFit.expand,
       children: [
-        layout(context),
+        Scaffold(
+          appBar: AppBar(
+            title: const Text(
+              "Open Library",
+              style: TextStyle(color: Colors.white70),
+            ),
+          ),
+          body: layout(context),
+        ),
         if (enableLoadingOverlay && controller != null)
           Observer(builder: (_) {
             return controller!.isLoading

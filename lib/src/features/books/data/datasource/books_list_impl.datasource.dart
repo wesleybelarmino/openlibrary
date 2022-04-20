@@ -14,7 +14,7 @@ class BooksListDataSourceImpl extends BooksListDataSource {
   BooksListDataSourceImpl(this.client);
 
   @override
-  Future<BookList> getBooks() async {
+  Future<BooksList> getBooks() async {
     final response = await client.get(
       Uri.parse("https://62507208977373573f3d77f0.mockapi.io/api/lib/library"),
       headers: {'Content-Type': 'application/json'},
