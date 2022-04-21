@@ -8,7 +8,6 @@ import 'package:openlibrary/src/controller/base.store.dart';
 import 'package:openlibrary/src/di/injection.dart';
 import 'package:openlibrary/src/presentation/base/reaction.dart';
 import 'package:openlibrary/src/presentation/ui/error_overlay.ui.dart';
-import 'package:openlibrary/src/presentation/ui/loading_overlay.ui.dart';
 
 abstract class BaseState<T extends StatefulWidget, S extends BaseStore>
     extends State<T> {
@@ -30,6 +29,9 @@ abstract class BaseState<T extends StatefulWidget, S extends BaseStore>
       : controller = controller ?? (S == BaseStore ? null : getIt<S>());
 
   Widget layout(BuildContext ctx);
+
+  PreferredSizeWidget appBar(BuildContext ctx);
+  PreferredSizeWidget _buildAppBar(BuildContext ctx) => appBar(ctx);
 
   final enableLoadingOverlay = true;
   final enableErrorOverlay = true;
@@ -60,24 +62,14 @@ abstract class BaseState<T extends StatefulWidget, S extends BaseStore>
 
   @override
   Widget build(BuildContext context) {
+    final _appBar = _buildAppBar(context);
     return Stack(
       fit: StackFit.expand,
       children: [
         Scaffold(
-          appBar: AppBar(
-            title: const Text(
-              "Open Library",
-              style: TextStyle(color: Colors.white70),
-            ),
-          ),
+          appBar: _appBar,
           body: layout(context),
         ),
-        // if (enableLoadingOverlay && controller != null)
-        //   Observer(builder: (_) {
-        //     return controller!.isLoading
-        //         ? const LoadingOverlay()
-        //         : const SizedBox.shrink();
-        //   }),
         if (enableErrorOverlay && controller != null)
           Observer(
             builder: (_) {

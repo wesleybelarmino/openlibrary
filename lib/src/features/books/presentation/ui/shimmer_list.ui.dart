@@ -11,14 +11,26 @@ class ShimmerList extends StatelessWidget {
       padding: const EdgeInsets.all(5.0),
       child: Shimmer.fromColors(
           child: ListView.builder(
-            itemBuilder: (_, __) => Padding(
-              padding: const EdgeInsets.all(8.0),
+            itemBuilder: (_, __) => Container(
+              padding: const EdgeInsets.all(5.0),
+              height: 180,
+              width: 300,
               child: Card(
                 elevation: 2,
-                child: SizedBox(
-                  width: MediaQuery.of(_).size.width,
-                  height: 100,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15.0),
                 ),
+                child: Padding(
+                    padding:
+                        const EdgeInsets.only(left: 10, top: 20, right: 10),
+                    child: Stack(
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [Container()],
+                        ),
+                      ],
+                    )),
               ),
             ),
             itemCount: 6,

@@ -11,7 +11,7 @@ class BooksPage extends StatefulWidget {
   const BooksPage({Key? key}) : super(key: key);
 
   @override
-  State<StatefulWidget> createState() => BooksPageState();
+  BooksPageState createState() => BooksPageState();
 }
 
 class BooksPageState extends BaseState<BooksPage, BooksController> {
@@ -38,4 +38,12 @@ class BooksPageState extends BaseState<BooksPage, BooksController> {
           : const ShimmerList();
     });
   }
+
+  @override
+  PreferredSizeWidget appBar(BuildContext ctx) => AppBar(
+        title: const Text(
+          "Open Library",
+          style: TextStyle(color: Colors.white70),
+        ),
+      );
 }
