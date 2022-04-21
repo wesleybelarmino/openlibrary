@@ -12,7 +12,6 @@ class Failure extends Equatable {
 
 const kAppFailure = AppFailure();
 const kTimeOutFailure = TimeOutFailure();
-const kEmaiPasswordFailure = EmailAndPasswordCombinationFailure();
 const kServerFailure = ServerFailure();
 const kConnectionFailure = ConnectionFailure();
 
@@ -28,13 +27,6 @@ class TimeOutFailure extends Failure {
       : super(
             title: "Instabilidade na conexão",
             message: "Ocorreu uma instabilidade e a ação não foi concluída");
-}
-
-class EmailAndPasswordCombinationFailure extends Failure {
-  const EmailAndPasswordCombinationFailure()
-      : super(
-            title: "Não foi possível logar",
-            message: "E-mail e/ou senha inválido(s)");
 }
 
 class ServerFailure extends Failure {
