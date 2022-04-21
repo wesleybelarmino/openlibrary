@@ -57,7 +57,8 @@ abstract class _BaseStoreBase extends Disposable with Store {
     });
   }
 
+  @override
   @nonVirtual
   @mustCallSuper
-  void dispose() {}
+  Future<void> onDispose() async {}
 }

@@ -5,10 +5,12 @@ import 'package:openlibrary/src/features/books/presentation/books.page.dart';
 
 void main() {
   configureDependencies(Environment.dev);
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
