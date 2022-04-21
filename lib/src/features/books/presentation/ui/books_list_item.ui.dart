@@ -19,42 +19,43 @@ class BooksListItem extends StatelessWidget {
           borderRadius: BorderRadius.circular(15.0),
         ),
         child: Padding(
-            padding: const EdgeInsets.only(left: 10, top: 20, right: 10),
-            child: Stack(
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Center(
-                      child: Text(
-                        book.title,
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                        style: const TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 16),
-                      ),
+          padding: const EdgeInsets.only(left: 10, top: 20, right: 10),
+          child: Stack(
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Center(
+                    child: Text(
+                      book.title,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 16),
                     ),
-                    const SizedBox(height: 16),
-                    Text(book.subtitle,
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 14,
-                          color: Colors.grey[500],
-                        )),
-                    const SizedBox(height: 22),
-                    Text(book.text,
-                        maxLines: 3,
-                        overflow: TextOverflow.ellipsis,
-                        style: const TextStyle(
-                          fontWeight: FontWeight.normal,
-                          fontSize: 12,
-                        )),
-                  ],
-                ),
-              ],
-            )),
+                  ),
+                  const SizedBox(height: 16),
+                  Text(book.subtitle,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 14,
+                        color: Colors.grey[500],
+                      )),
+                  const SizedBox(height: 22),
+                  Text(book.text,
+                      maxLines: 3,
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.normal,
+                        fontSize: 12,
+                      )),
+                ],
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

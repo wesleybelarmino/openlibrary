@@ -15,7 +15,50 @@ class BooksDetailPage extends StatefulWidget {
 class BooksDetailPageState extends BaseState<BooksDetailPage, BaseStore> {
   @override
   Widget layout(BuildContext ctx) {
-    return Container();
+    return Padding(
+      padding: const EdgeInsets.only(left: 10, top: 20, right: 10),
+      child: Stack(
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Center(
+                child: Image.asset(
+                  'lib/images/books.png',
+                  height: 200,
+                  width: 200,
+                ),
+              ),
+              const SizedBox(height: 30),
+              Center(
+                child: Text(
+                  widget.book.title,
+                  maxLines: 3,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold, fontSize: 16),
+                ),
+              ),
+              const SizedBox(height: 16),
+              Text(widget.book.subtitle,
+                  maxLines: 3,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 14,
+                    color: Colors.grey[500],
+                  )),
+              const SizedBox(height: 22),
+              Text(widget.book.text,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.normal,
+                    fontSize: 12,
+                  )),
+            ],
+          ),
+        ],
+      ),
+    );
   }
 
   @override
